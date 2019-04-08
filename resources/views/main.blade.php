@@ -6,12 +6,11 @@
 
 <div class="container">
 
-@yield('content')
+  @yield('content')
 
-      <hr>
+  @include('partials._footer')
 
-      <p class="text-center">Copyright KMYSK - All Rights Reserved</p>
-    </div> <!-- containerクラスの終了 -->
+</div> <!-- containerクラスの終了 -->
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
