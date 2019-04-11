@@ -12,6 +12,9 @@
       {!! Form::open(array('route' => 'posts.store')) !!}
         {{ Form::label('title', 'Title:') }}
         {{ Form::text('title', null, array('class' => 'form-controll')) }}
+
+        {{ Form::label('body', 'Post Body:') }}
+        {{ Form::textarea('body', null, array('class' => 'form-controll')) }}
       {!! Form::close() !!}
     </div>
   </div>
