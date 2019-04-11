@@ -15,6 +15,8 @@
 
         {{ Form::label('body', 'Post Body:') }}
         {{ Form::textarea('body', null, array('class' => 'form-controll')) }}
+
+        {{ Form::submit('Create Post') }}
       {!! Form::close() !!}
     </div>
   </div>
