@@ -16,11 +16,11 @@
 
         <dl class="dl-horizontal">
           <dt>Create At:</dt>
-          <dd>time</dd>
+          <dd>{{ date('M j, Y h:ia', strtotime($post -> created_at)) }}</dd>
         </dl>
         <dl class="dl-horizontal">
           <dt>Last Updated:</dt>
-          <dd>time</dd>
+          <dd>{{ date('M j, Y h:ia', strtotime($post -> updated_at)) }}</dd>
         </dl>
         <hr>
 
