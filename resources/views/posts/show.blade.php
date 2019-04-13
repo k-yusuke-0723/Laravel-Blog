@@ -26,10 +26,10 @@
 
         <div class="row">
           <div class="col-sm-6">
-            <a href="#" class="btn btn-primary btn-block">編集</a>
+            {!! Html::linkRoute('posts.edit', '編集', array($post -> id), array('class' => 'btn btn-primary btn-block')) !!}
           </div>
           <div class="col-sm-6">
-            <a href="#" class="btn btn-danger btn-block">削除</a>
+            {!! Html::linkRoute('posts.destroy', '削除', array($post -> id), array('class' => 'btn btn-danger btn-block')) !!}
           </div>
         </div>
 
