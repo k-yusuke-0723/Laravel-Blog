@@ -22,6 +22,16 @@
           <dt>Last Updated:</dt>
           <dd>time</dd>
         </dl>
+        <hr>
+
+        <div class="row">
+          <div class="col-sm-6">
+            <a href="#" class="btn btn-primary btn-block">編集</a>
+          </div>
+          <div class="col-sm-6">
+            <a href="#" class="btn btn-danger btn-block">削除</a>
+          </div>
+        </div>
 
       </div>
     </div>
