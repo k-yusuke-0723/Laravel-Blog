@@ -80,7 +80,10 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        // データベースからpostされたデータを探す
+        $post = Post::find($id);
+        // ビューを返して以前に作成した変数varを渡す
+        return view('posts.edit') -> withPost($post);
     }
 
     /**
