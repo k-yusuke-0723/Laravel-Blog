@@ -6,8 +6,12 @@
 
   <div class="row">
     <div class="col-md-8">
-      <h1>{{ $post->title }}</h1>
-      <p class="lead">{{ $post->body }}</p>
+      {!! Form::model($post, ['route' => ['posts.update', $post -> id]]) !!}
+        {{ Form::label('title', 'Title:') }}
+        {{ Form::text('title', null, ['class' => 'form-control input-lg']) }}
+
+        {{ Form::label('body', 'Body:', ['class' => 'form-spacing-top']) }}
+        {{ Form::textarea('body', null, ['class' => 'form-control']) }}
     </div>
 
 
@@ -35,6 +39,7 @@
 
       </div>
     </div>
-  </div>
+    {!! Form::close() !!}
+  </div><!-- end of form -->
 
 @stop
