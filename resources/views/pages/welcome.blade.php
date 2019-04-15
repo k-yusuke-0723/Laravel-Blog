@@ -63,7 +63,7 @@
 @endsection
 
 @section('scripts')
-  <script>
+{{--   <script>
       confirm('I loaded up some JS')
-  </script>
+  </script> --}}
 @endsection
