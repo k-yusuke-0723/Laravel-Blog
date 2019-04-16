@@ -18,7 +18,10 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        // DBから全ての投稿を取り出し、変数に保存する
+        $posts = Post::all();
+        // 変数を入れたビューを返す
+        return view('posts.index') -> withPosts($posts);
     }
 
     /**
