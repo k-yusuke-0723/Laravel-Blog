@@ -108,7 +108,7 @@ class PostController extends Controller
 
         $post -> save();
         // 成功時にフラッシュメッセージを表示する
-
+        Session::flash('success', 'この投稿は変更し保存されました。');
         // posts.showにリダイレクトさせる
         return redirect() -> route('posts.show', $post -> id);
     }
