@@ -33,7 +33,7 @@
             {!! Html::linkRoute('posts.show', 'キャンセル', array($post -> id), array('class' => 'btn btn-danger btn-block')) !!}
           </div>
           <div class="col-sm-6">
-            {!! Html::linkRoute('posts.update', '変更を保存', array($post -> id), array('class' => 'btn btn-success btn-block')) !!}
+            {{ Form::submit('変更を保存', ['class' => 'btn btn-success btn-block']) }}
           </div>
         </div>
 
