@@ -10,7 +10,7 @@
     </div>
 
     <div class="col-md-2">
-      <a href="{{ route('posts.create') }}" class="btn btn-lg btn-primary btn-h1-spacing">Create New Post</a>
+      <a href="{{ route('posts.create') }}" class="btn btn-lg btn-primary btn-h1-spacing">新規投稿</a>
     </div>
     <div class="col-md-12">
       <hr>
@@ -35,7 +35,7 @@
             <tr>
               <th>{{ $post -> id }}</th>
               <th>{{ $post -> title }}</th>
-              <th>{{ $post -> body }}</th>
+              <th>{{ substr($post -> body, 0, 50) }}{{ strlen($post -> body) > 50 ? "..." : "" }}</th>
               <th>{{ $post -> created_at }}</th>
               <td><a href="#" class="btn btn-default">View</a> <a href="#" class="btn btn-default">Edit</a></td>
             </tr>
