@@ -82,7 +82,7 @@ class PostController extends Controller
     {
         // データベースからpostされたデータを探す
         $post = Post::find($id);
-        // ビューを返して以前に作成した変数varを渡す
+        // 探してきたpostのビューを返す
         return view('posts.edit') -> withPost($post);
     }
 
@@ -95,7 +95,22 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // バリデーションをかける
+        $this -> validate($request, array(
+            'title' => 'required|max:255',
+            'body'  => 'required'
+        ));
+        // DBにデータを保存する
+        $post = Post::find($id);
+
+        $post -> title = $request -> input('title');
+        $post -> body  = $request -> input('body');
+
+        $post -> save();
+        // 成功時にフラッシュメッセージを表示する
+
+        // posts.showにリダイレクトさせる
+        return redirect() -> route('posts.show', $post -> id);
     }
 
     /**
