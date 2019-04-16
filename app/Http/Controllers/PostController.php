@@ -121,6 +121,11 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // DBからpostされたデータを探す
+        $post = Post::find($id);
+        // 削除するメソッド
+        $post -> delete();
+        // posts.indexにリダイレクトさせる
+        return redirect() -> route('posts.index');
     }
 }
