@@ -128,6 +128,8 @@ class PostController extends Controller
         $post = Post::find($id);
         // 削除するメソッド
         $post -> delete();
+        // 投稿削除成功のフラッシュの表示
+        Session::flash('success', 'この投稿の削除に成功しました。');
         // posts.indexにリダイレクトさせる
         return redirect() -> route('posts.index');
     }
