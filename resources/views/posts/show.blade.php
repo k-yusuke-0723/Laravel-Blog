@@ -38,7 +38,11 @@
 
           </div>
         </div>
-
+        <div class="row">
+          <div class="col-md-12">
+            {{ Html::linkroute('posts.index', '<<一覧表示へ戻る', [], ['class' => 'btn btn-dafault btn-block btn-h1-spacing btn-edit']) }}
+          </div>
+        </div>
       </div>
     </div>
   </div>
