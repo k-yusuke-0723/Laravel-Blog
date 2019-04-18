@@ -27,7 +27,7 @@
 
             <div class="post">
               <h3>{{ $post -> title }}</h3>
-              <p>{{ $post -> body }}</p>
+              <p>{{ substr($post -> body, 0, 30) }}{{ strlen($post -> body) > 30 ? "..." : "" }}</p>
               <a href="#" class="btn btn-primary">Read More</a>
             </div>
 

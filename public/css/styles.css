@@ -9,6 +9,7 @@
 }
 .lead {
   margin-top: 20px;
+  word-wrap:break-word;
 }
 .col-md-4 {
   background: #CCCCCC;
@@ -20,4 +21,3 @@
   color: white;
   border: solid 2px white;
 }
-
