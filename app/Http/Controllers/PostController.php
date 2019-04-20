@@ -109,6 +109,7 @@ class PostController extends Controller
         $post = Post::find($id);
 
         $post -> title = $request -> input('title');
+        $post -> slug  = $request -> input('slug');
         $post -> body  = $request -> input('body');
 
         $post -> save();
