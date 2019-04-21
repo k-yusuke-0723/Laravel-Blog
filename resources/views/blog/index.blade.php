@@ -19,6 +19,7 @@
       <p>{{ substr($post -> body, 0, 250) }}{{ strlen($post -> body) > 250 ? '...' : "" }}</p>
 
       <a href="{{ route('blog.single', $post -> slug) }}" class= "btn btn-primary">READ MORE</a>
+      <hr>
     </div>
   </div>
   @endforeach
