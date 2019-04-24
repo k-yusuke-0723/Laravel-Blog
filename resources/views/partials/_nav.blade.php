@@ -11,7 +11,8 @@
         <li class="{{ Request::is('blog') ? "active" : "" }}"><a class="nav-link" href="/blog">Blog</a></li>
         <li class="{{ Request::is('about') ? "active" : "" }}"><a class="nav-link" href="/about">About</a></li>
         <li class="{{ Request::is('contact') ? "active" : "" }}"><a class="nav-link" href="/contact">Contact</a></li>
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown navbar-right">
+          @if (Auth::check())
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               My Account
           </a>
@@ -19,9 +20,15 @@
             <a class="dropdown-item" href="{{ route('posts.index') }}">Posts</a>
             <a class="dropdown-item" href="#">Another action</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Logout</a>
+            <a class="dropdown-item" href="/home">Logout</a>
           </div>
         </li>
+
+        @else
+
+          <a href="{{ route('login') }}" class = "btn btn-default">Login</a>
+
+        @endif
       </ul>
     </div>
 </nav>
