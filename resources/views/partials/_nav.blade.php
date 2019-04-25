@@ -13,6 +13,7 @@
         <li class="{{ Request::is('contact') ? "active" : "" }}"><a class="nav-link" href="/contact">Contact</a></li>
         <li class="nav-item dropdown navbar-right">
           @if (Auth::check())
+
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               My Account
           </a>
