@@ -14,9 +14,7 @@
         <li class="nav-item dropdown navbar-right">
           @if (Auth::check())
 
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              My Account
-          </a>
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">HELLO {{ Auth::user()->name }}さん</a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="{{ route('posts.index') }}">Posts</a>
             <a class="dropdown-item" href="#">Another action</a>
