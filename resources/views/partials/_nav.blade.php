@@ -25,7 +25,9 @@
 
         @else
 
-          <a href="{{ route('login') }}" class = "btn btn-default">Login</a>
+          <ul class="nav navbar-nav">
+            <li class="{{ Request::is('login') ? "active" : "" }}"><a class="nav-link" href="{{ route('login') }}">Login</a></li>
+            <li class="{{ Request::is('register') ? "active" : "" }}"><a class="nav-link" href="{{ route('register') }}">新規登録</a></li>
 
         @endif
       </ul>
