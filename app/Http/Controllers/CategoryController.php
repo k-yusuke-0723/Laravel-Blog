@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
+    public function __construct() {
+      $this -> middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +17,12 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+      // 全てのカテゴリーのビューを表示
+      // 新しいカテゴリーを作成するためのフォームを用意
+
+      $categories = Category::all();
+      return view('categories.index') -> withCategories($categories);
+
     }
 
     /**
