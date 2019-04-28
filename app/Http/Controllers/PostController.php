@@ -91,8 +91,13 @@ class PostController extends Controller
     {
         // データベースからpostされたデータを探す
         $post = Post::find($id);
+        $categories = Category::all();
+        $cats = array();
+        foreach ($categories as $category) {
+            $cats[$category -> id] = $category -> name;
+        }
         // 探してきたpostのビューを返す
-        return view('posts.edit') -> withPost($post);
+        return view('posts.edit') -> withPost($post) -> withCategories($cats);
     }
 
     /**
@@ -108,15 +113,17 @@ class PostController extends Controller
         $post = Post::find($id);
         if ($request -> input('slug') == $post -> slug) {
             $this -> validate($request, array(
-              'title' => 'required|max:255',
-              'body'  => 'required'
+              'title'       => 'required|max:255',
+              'category_id' => 'required|integer',
+              'body'        => 'required'
             ));
         } else {
         $this -> validate($request, array(
             'title' => 'required|max:255',
             'slug'  => 'required|alpha_dash|min:5|max:255|unique:posts,slug',
+            'category_id' => 'required|integer',
             'body'  => 'required'
-        ));
+          ));
         }
         // DBにデータを保存する
         $post = Post::find($id);
