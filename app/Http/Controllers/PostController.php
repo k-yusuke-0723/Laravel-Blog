@@ -31,7 +31,9 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('posts.create');
+        // カテゴリーを作成して、変数を入れたビューを返す
+        $categories = Category::all();
+        return view('posts.create') -> withCategories($categories);
     }
 
     /**
@@ -50,7 +52,7 @@ class PostController extends Controller
 
         ));
 
-        // store in the database(データベースに格納する)
+        // データベースに格納する
         $post = new Post;
 
         $post -> title = $request -> title;
@@ -58,9 +60,9 @@ class PostController extends Controller
         $post -> body  = $request -> body;
 
         $post -> save();
-        // redirect to another page(ページ遷移させる)
+        // flashを表示させて、ページ遷移させる
 
-        Session::flash('success', 'The blog post was successfully save!');
+        Session::flash('success', 'ブログの投稿に成功しました！');
 
         return redirect() -> route('posts.show', $post ->id);
     }
