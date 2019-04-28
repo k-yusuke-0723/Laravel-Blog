@@ -47,18 +47,19 @@ class PostController extends Controller
     {
         //データをvalidateする
         $this -> validate($request, array(
-            'title' => 'required|max:255',
-            'slug'  => 'required|alpha_dash|min:5|max:255',
-            'body'  => 'required'
-
+            'title'       => 'required|max:255',
+            'slug'        => 'required|alpha_dash|min:5|max:255|unique:posts,slug',
+            'category_id' => 'required|integer',
+            'body'        => 'required'
         ));
 
         // データベースに格納する
         $post = new Post;
 
-        $post -> title = $request -> title;
-        $post -> slug  = $request -> slug;
-        $post -> body  = $request -> body;
+        $post -> title       = $request -> title;
+        $post -> slug        = $request -> slug;
+        $post -> category_id = $request -> category_id;
+        $post -> body        = $request -> body;
 
         $post -> save();
         // flashを表示させて、ページ遷移させる
@@ -120,9 +121,10 @@ class PostController extends Controller
         // DBにデータを保存する
         $post = Post::find($id);
 
-        $post -> title = $request -> input('title');
-        $post -> slug  = $request -> input('slug');
-        $post -> body  = $request -> input('body');
+        $post -> title       = $request -> input('title');
+        $post -> slug        = $request -> input('slug');
+        $post -> category_id = $request -> input('category_id');
+        $post -> body        = $request -> input('body');
 
         $post -> save();
         // 成功時にフラッシュメッセージを表示する
