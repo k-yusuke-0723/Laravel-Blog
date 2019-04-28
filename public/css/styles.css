@@ -24,3 +24,7 @@
 .btn-primary {
   margin-top: 10px;
 }
+.col-md-3 {
+  background: silver;
+  border-radius: 10px;
+}
