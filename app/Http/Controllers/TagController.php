@@ -23,16 +23,6 @@ class TagController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -40,7 +30,20 @@ class TagController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // バリデーションをかける
+        $this -> validate($request, array('name' => 'required|max:255'));
+        // 空の配列を作成
+        $tag = new Tag;
+        // $requestに代入されている物を$tagのnameに代入
+        $tag -> name = $request -> name;
+        // 保存
+        $tag -> save();
+
+        // 保存に成功した時にフラッシュの表示
+        Session::flash('success', '新しいタグの作成に成功しました！');
+
+        // タグ一覧にリダイレクトさせる
+        return redirect() -> route('tags.index');
     }
 
     /**
