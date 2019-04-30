@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Post;
 use App\category;
+use App\Tag;
 use Session;
 
 class PostController extends Controller
@@ -34,7 +35,8 @@ class PostController extends Controller
     {
         // カテゴリーを作成して、変数を入れたビューを返す
         $categories = Category::all();
-        return view('posts.create') -> withCategories($categories);
+        $tags = Tag::all();
+        return view('posts.create') -> withCategories($categories)->withTags($tags);
     }
 
     /**
