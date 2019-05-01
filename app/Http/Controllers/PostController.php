@@ -64,10 +64,11 @@ class PostController extends Controller
         $post -> body        = $request -> body;
 
         $post -> save();
+
+        $post->tags()->sync($request->tags, false);
+
         // flashを表示させて、ページ遷移させる
-
         Session::flash('success', 'ブログの投稿に成功しました！');
-
         return redirect() -> route('posts.show', $post ->id);
     }
 
